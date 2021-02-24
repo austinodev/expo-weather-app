@@ -9,7 +9,7 @@ export default function useUserLocation() {
 	const [latitude, setLatitude] = useState<number | null>(null);
 	const [longitude, setLongitude] = useState<number | null>(null);
 
-	useEffect(() => {
+	useEffect((): any => {
 		checkLocation()
 			.then((locationStatus) => {
 				if (!locationStatus) {
@@ -25,6 +25,7 @@ export default function useUserLocation() {
 				});
 			})
 			.catch((error) => error.message);
+		return () => checkLocation();
 	}, [latitude, longitude, isLocationEnabled, turnedOnLocation]);
 
 	async function checkLocation() {
