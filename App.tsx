@@ -4,8 +4,8 @@ import { View } from "react-native";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import tailwind from "tailwind-rn";
-import Home from "./screens/Home";
 import Redux from "./Redux";
+import Loading from "./screens/Loading";
 
 export default function App() {
 	return (
@@ -13,7 +13,7 @@ export default function App() {
 			<Provider store={Redux.store}>
 				<View style={tailwind("flex-1 bg-gray-200")}>
 					<StatusBar style="auto" />
-					<Home />
+					<Loading />
 				</View>
 			</Provider>
 		</PersistGate>
